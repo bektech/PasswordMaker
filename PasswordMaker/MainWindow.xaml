@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Vertical" Grid.Row="0">
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Slider x:Name="sliderPasswordLength" Value="8" Minimum="4" Maximum="20" IsSnapToTickEnabled="True" Grid.Column="0"></Slider>
+                <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1"></TextBlock>
+            </Grid>
+
+            <ToggleButton Content="Uppercase characters"></ToggleButton>
+            <ToggleButton Content="Lowercase characters"></ToggleButton>
+            <ToggleButton Content="Numbers"></ToggleButton>
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <Button Content="Generate password"></Button>
+            <TextBox></TextBox>
+        </StackPanel>
+        
     </Grid>
 </Window>
