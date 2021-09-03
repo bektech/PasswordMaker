@@ -8,8 +8,13 @@ namespace PasswordMaker.Model
 {
     public class PasswordMaker
     {
+        private enum Choice
+        {
+            Uppercase, Lowercase, Number
+        }
+
         private readonly string alphabet = "abcdefghijklmnopqrstuvwxyz";
-        private Random random;
+        private readonly Random random;
         private List<Choice> choices;
 
         private StringBuilder passwordString;
@@ -78,8 +83,4 @@ namespace PasswordMaker.Model
         private int AddNumber() => random.Next(1, 10);
     }
 
-    public enum Choice
-    {
-        Uppercase, Lowercase, Number
-    }
 }
