@@ -21,19 +21,19 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Slider x:Name="sliderPasswordLength" Value="8" Minimum="4" Maximum="20" IsSnapToTickEnabled="True" Grid.Column="0"></Slider>
-                <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1"></TextBlock>
+                <Slider x:Name="sliderPasswordLength" Value="{Binding Path=PasswordLength}"  Minimum="4" Maximum="20" IsSnapToTickEnabled="True" Grid.Column="0"></Slider>
+                <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1" MinWidth="16" TextAlignment="Center"></TextBlock>
             </Grid>
 
-            <ToggleButton Content="Uppercase characters"></ToggleButton>
-            <ToggleButton Content="Lowercase characters"></ToggleButton>
-            <ToggleButton Content="Numbers"></ToggleButton>
+            <ToggleButton Content="Uppercase characters" IsChecked="{Binding Path=UseUppercase}"></ToggleButton>
+            <ToggleButton Content="Lowercase characters" IsChecked="{Binding Path=UseLowercase}"></ToggleButton>
+            <ToggleButton Content="Numbers" IsChecked="{Binding Path=UseNumber}"></ToggleButton>
             
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
-            <Button Content="Generate password"></Button>
-            <TextBox></TextBox>
+            <Button Content="Generate password" Command="{Binding Path=GeneratePassword}"></Button>
+            <TextBox Text="{Binding Path=PasswordString}"></TextBox>
         </StackPanel>
         
     </Grid>

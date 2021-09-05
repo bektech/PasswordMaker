@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using PasswordMaker.ViewModel;
+
 namespace PasswordMaker
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace PasswordMaker
         public MainWindow()
         {
             InitializeComponent();
+            Presenter viewModel = new Presenter();
+            DataContext = viewModel;
         }
     }
 }
