@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordMaker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Password Maker" Height="250" Width="400">
     <Grid>
         
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Vertical" Grid.Row="0">
@@ -21,20 +23,19 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Slider x:Name="sliderPasswordLength" Value="{Binding Path=PasswordLength}"  Minimum="4" Maximum="20" IsSnapToTickEnabled="True" Grid.Column="0"></Slider>
-                <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1" MinWidth="16" TextAlignment="Center"></TextBlock>
+                <Slider x:Name="sliderPasswordLength" Value="{Binding Path=PasswordLength}"  Minimum="4" Maximum="20" IsSnapToTickEnabled="True" Grid.Column="0" VerticalAlignment="Center"></Slider>
+                <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1" MinWidth="16" TextAlignment="Center" FontSize="20"></TextBlock>
             </Grid>
 
-            <ToggleButton Content="Uppercase characters" IsChecked="{Binding Path=UseUppercase}"></ToggleButton>
-            <ToggleButton Content="Lowercase characters" IsChecked="{Binding Path=UseLowercase}"></ToggleButton>
-            <ToggleButton Content="Numbers" IsChecked="{Binding Path=UseNumber}"></ToggleButton>
-            
+            <ToggleButton Style="{StaticResource ToggleStyle}" x:Name="uppercaseToggle" Content="Uppercase characters" IsChecked="{Binding Path=UseUppercase, Mode=TwoWay}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleStyle}" Content="Lowercase characters" IsChecked="{Binding Path=UseLowercase, Mode=TwoWay}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleStyle}" Content="Numbers" IsChecked="{Binding Path=UseNumber, Mode=TwoWay}"></ToggleButton>
+
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1">
-            <Button Content="Generate password" Command="{Binding Path=GeneratePassword}"></Button>
-            <TextBox Text="{Binding Path=PasswordString}"></TextBox>
-        </StackPanel>
+        <Button Content="Create password" Command="{Binding Path=GeneratePassword}" Grid.Row="2"/>
+        <Label Style="{StaticResource TextStyle}" Content="{Binding Path=PasswordString}" Grid.Row="3"/>
+        
         
     </Grid>
 </Window>
