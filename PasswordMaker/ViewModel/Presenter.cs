@@ -18,9 +18,9 @@ namespace PasswordMaker.ViewModel
         public Presenter()
         {
             PasswordLength = 8;
-            UseLowercase = true;
-            UseUppercase = true;
-            useNumber = true;
+            UseLowercase = false;
+            UseUppercase = false;
+            useNumber = false;
             GeneratePassword = new Command(CreatePassword, () => UseLowercase || UseUppercase || UseNumber);
             passwordMaker = new PasswordGenerator();
         }

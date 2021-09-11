@@ -25,15 +25,15 @@
                 <TextBlock Text="{Binding ElementName=sliderPasswordLength, Path=Value}" Grid.Column="1" MinWidth="16" TextAlignment="Center"></TextBlock>
             </Grid>
 
-            <ToggleButton Content="Uppercase characters" IsChecked="{Binding Path=UseUppercase}"></ToggleButton>
-            <ToggleButton Content="Lowercase characters" IsChecked="{Binding Path=UseLowercase}"></ToggleButton>
-            <ToggleButton Content="Numbers" IsChecked="{Binding Path=UseNumber}"></ToggleButton>
-            
+            <ToggleButton Style="{StaticResource ToggleStyle}" x:Name="uppercaseToggle" Content="Uppercase characters" IsChecked="{Binding Path=UseUppercase, Mode=TwoWay}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleStyle}" Content="Lowercase characters" IsChecked="{Binding Path=UseLowercase, Mode=TwoWay}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleStyle}" Content="Numbers" IsChecked="{Binding Path=UseNumber, Mode=TwoWay}"></ToggleButton>
+
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
-            <Button Content="Generate password" Command="{Binding Path=GeneratePassword}"></Button>
-            <TextBox Text="{Binding Path=PasswordString}"></TextBox>
+            <Button Content="Create password" Command="{Binding Path=GeneratePassword}"/>
+            <Label Style="{StaticResource TextStyle}" Content="{Binding Path=PasswordString}"/>
         </StackPanel>
         
     </Grid>

@@ -15,14 +15,13 @@ namespace PasswordMaker.Model
             Uppercase, Lowercase, Number
         }
 
-        private readonly string alphabet = "abcdefghijklmnopqrstuvwxyz";
         private readonly Random random;
         private List<Choice> choices;
         private StringBuilder passwordBuilder;
 
         public PasswordGenerator()
         {
-            random = new Random();
+            random = new Random(DateTime.Now.Millisecond);
             passwordBuilder = new StringBuilder();
             choices = new List<Choice>();
         }
@@ -67,12 +66,12 @@ namespace PasswordMaker.Model
 
         private char AddLowercase()
         {
-            return alphabet[random.Next(alphabet.Length)];
+            return (char)random.Next(97, 123);
         }
 
         private char AddUppercase()
         {
-            return alphabet.ToUpper()[random.Next(alphabet.Length)];
+            return (char)random.Next(65, 91);
         }
 
         private int AddNumber()
