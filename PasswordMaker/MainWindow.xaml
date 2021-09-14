@@ -34,7 +34,7 @@
         </StackPanel>
 
         <Button Content="Create password" Command="{Binding Path=GeneratePassword}" Grid.Row="2"/>
-        <Label Style="{StaticResource TextStyle}" Content="{Binding Path=PasswordString}" Grid.Row="3"/>
+        <TextBlock Style="{StaticResource TextStyle}" Text="{Binding Path=PasswordString}" Grid.Row="3"/>
         
         
     </Grid>
